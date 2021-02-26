@@ -1,0 +1,13 @@
+import orangeBackground from "../assets/images/orange-bg.jpg";
+import blueBackground from "../assets/images/blue-bg.jpg";
+import colorfulBackground from "../assets/images/colorful-bg.jpg";
+import pinkBackground from "../assets/images/pink-bg.jpg";
+import whiteBackgrounnd from "../assets/images/white-bg.jpg";
+const Images = {
+  ORANGE_BG: orangeBackground,
+  BLUE_BG: blueBackground,
+  COLORFUL_GB: colorfulBackground,
+  PINK_BG: pinkBackground,
+  WHITE_BG: whiteBackgrounnd,
+};
+export default Images;
