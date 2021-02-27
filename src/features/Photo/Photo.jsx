@@ -10,6 +10,7 @@ function Photo() {
       <Switch>
         <Route exact path={match.url} component={MainPage} />
         <Route exact path={`${match.url}/add`} component={AddEdit} />
+        <Route exact path={`${match.url}/:photoId`} component={AddEdit} />
         <Route component={NotFound} />
       </Switch>
     </div>

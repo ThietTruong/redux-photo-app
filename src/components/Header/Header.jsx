@@ -14,7 +14,7 @@ function Header() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Easy Frontend
+              THIET
             </a>
           </Col>
           <Col xs="auto">

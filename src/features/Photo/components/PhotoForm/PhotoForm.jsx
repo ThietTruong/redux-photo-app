@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroup, Label, Button, Input } from "reactstrap";
+import { FormGroup, Label, Button, Input, Spinner } from "reactstrap";
 import Select from "react-select";
 import { PHOTO_CATEGORY_OPTIONS } from "constants/global";
 import Images from "constants/images";
@@ -9,12 +9,7 @@ import SelectField from "custom-fields/Select-Field/SelectField";
 import RadomPhotoField from "../../../../custom-fields/RadomPhotoField/RadomPhotoField";
 import * as Yup from "yup";
 
-function PhotoForm() {
-  const initialValues = {
-    title: "",
-    photo: "",
-    categoryId: null,
-  };
+function PhotoForm({ onSubmit, initialValues, isAddMode }) {
   const validationSchema = Yup.object().shape({
     title: Yup.string().required("This field is require"),
     photo: Yup.string().when("categoryId", {
@@ -27,13 +22,10 @@ function PhotoForm() {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        console.log("Submit: ", values);
-      }}
+      onSubmit={onSubmit}
     >
       {(formikProps) => {
-        console.log("aaaaaaaaa", formikProps);
-        const { value, touched, errors } = formikProps;
+        const { value, touched, errors, isSubmitting } = formikProps;
         return (
           <Form>
             <FastField
@@ -53,8 +45,9 @@ function PhotoForm() {
             <FastField name="photo" component={RadomPhotoField} label="Photo" />
 
             <FormGroup>
-              <Button color="primary" type="submit">
-                Add to album
+              <Button color={isAddMode ? "primary" : "success"} type="submit">
+                {isSubmitting && <Spinner size="sm" />}
+                {isAddMode ? "Add to album" : "Update your photo"}
               </Button>
             </FormGroup>
           </Form>

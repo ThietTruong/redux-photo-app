@@ -11,13 +11,10 @@ function App() {
           <Header />
           <ul>
             <li>
-              <Link to="/photos">Go to photo page</Link>
+              <Link to="/photos">Overview</Link>
             </li>
             <li>
-              <Link to="/photos/add">Go to add new photo page</Link>
-            </li>
-            <li>
-              <Link to="/photos/edit">Go to edit photo page</Link>
+              <Link to="/photos/add">Add new photo</Link>
             </li>
           </ul>
           <Switch>
